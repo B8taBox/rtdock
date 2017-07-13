@@ -1,4 +1,4 @@
-FROM ubuntu:benjamin
+FROM ubuntu:xenial
 
 MAINTAINER benjamin <bejamin@b8tabox.comm>
 
