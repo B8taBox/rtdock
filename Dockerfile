@@ -4,7 +4,6 @@ MAINTAINER benjamin <bejamin@b8tabox.comm>
 
 ENV VER_LIBTORRENT 0.13.6
 ENV VER_RTORRENT 0.9.6
-USER benjamin
 
 WORKDIR /usr/local/src
 
@@ -69,4 +68,4 @@ ENTRYPOINT ["/usr/local/bin/docktorrent"]
 EXPOSE 80 
 
 # Declare volumes
-VOLUME ["/home/$USER", "/var/log"]
+VOLUME ["/home/", "/var/log"]
