@@ -1,6 +1,6 @@
-FROM ubuntu:xenial
+FROM debian:jessie
 
-MAINTAINER benjamin <bejamin@b8tabox.comm>
+MAINTAINER benjamin <benjamin@b8tabox.comm>
 
 ENV VER_LIBTORRENT 0.13.6
 ENV VER_RTORRENT 0.9.6
@@ -8,13 +8,14 @@ ENV VER_RTORRENT 0.9.6
 WORKDIR /usr/local/src
 
 # Dependencies to save time and capacity
+# curl-7.54.1.tar.gz
 RUN build_deps="automake build-essential ca-certificates libc-ares-dev libcppunit-dev libtool"; \
     build_deps="${build_deps} libssl-dev libxml2-dev libncurses5-dev pkg-config subversion wget"; \
     set -x && \
     apt-get update && apt-get install -q -y --no-install-recommends ${build_deps} && \
-    wget http://curl.haxx.se/download/curl-7.53.0.tar.gz && \
-    tar xzvfp curl-7.53.0.tar.gz && \
-    cd curl-7.53.0 && \
+    wget http://curl.haxx.se/download/curl-7.54.1.tar.gz && \
+    tar xzvfp curl-7.54.1.tar.gz && \
+    cd curl-7.54.1 && \
     ./configure --enable-ares --enable-tls-srp --enable-gnu-tls --with-zlib --with-ssl && \
     make && \
     make install && \
